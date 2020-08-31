@@ -8,7 +8,7 @@ const gerarArquivo = fs.stat(caminho, erro => {
     } 
 
     const dado = "primeiro_nome,sobrenome,email,idade,genero,username,password,hash\n";
-    const arquivo = "./dados/usuarios.csv";
+    const arquivo = `${caminho}/usuarios.csv`;
 
     fs.writeFile(arquivo, dado, erro => { if(erro) { throw erro; }});
 });
@@ -21,7 +21,7 @@ async function gerarUsuario() {
     
         if(resposta.ok) {
             const usuario = await resposta.json();
-            const arquivo = "./dados/usuarios.csv";
+            const arquivo = `${caminho}/usuarios.csv`;
     
             usuario.results.forEach(usuario => {
                 const dados = fs.createWriteStream(arquivo, {flags: "a"});
