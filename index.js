@@ -1,9 +1,10 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
+const caminho = "./dados";
 
-const gerarArquivo = fs.stat("./dados", erro => {
+const gerarArquivo = fs.stat(caminho, erro => {
     if(erro) {
-        fs.mkdir("./dados", erro => { if(erro) { throw erro }});
+        fs.mkdir(caminho, erro => { if(erro) { throw erro }});
     } 
 
     const dado = "primeiro_nome,sobrenome,email,idade,genero,username,password,hash\n";
